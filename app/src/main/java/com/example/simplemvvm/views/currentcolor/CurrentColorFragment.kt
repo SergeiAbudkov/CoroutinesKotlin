@@ -4,10 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+
 import com.example.simplemvvm.databinding.FragmentCurrentColorBinding
 import com.example.foundation.views.BaseFragment
 import com.example.foundation.views.BaseScreen
 import com.example.foundation.views.screenViewModel
+import com.example.simplemvvm.databinding.PartResultBinding
+import com.example.simplemvvm.views.onTryAgain
+import com.example.simplemvvm.views.renderSimpleResult
 
 class CurrentColorFragment : BaseFragment() {
     private lateinit var binding: FragmentCurrentColorBinding
@@ -23,15 +27,25 @@ class CurrentColorFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentCurrentColorBinding.inflate(layoutInflater, container, false)
+        viewModel.currentColor.observe(viewLifecycleOwner) { result ->
+            renderSimpleResult(
+                binding.root,
+                result = result,
+                onSuccess = {
+                    binding.colorView.setBackgroundColor(it.value)
+                })
 
-        viewModel.currentColor.observe(viewLifecycleOwner) {
-            binding.colorView.setBackgroundColor(it.value)
         }
-
         binding.changeColorButton.setOnClickListener {
             viewModel.changeColor()
         }
 
+        onTryAgain(binding.root) {
+            viewModel.onTryAgain()
+        }
+
         return binding.root
     }
+
+
 }
