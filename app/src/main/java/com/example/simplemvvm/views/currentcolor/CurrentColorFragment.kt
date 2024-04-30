@@ -4,12 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-import com.example.simplemvvm.databinding.FragmentCurrentColorBinding
 import com.example.foundation.views.BaseFragment
 import com.example.foundation.views.BaseScreen
 import com.example.foundation.views.screenViewModel
-import com.example.simplemvvm.databinding.PartResultBinding
+import com.example.simplemvvm.databinding.FragmentCurrentColorBinding
 import com.example.simplemvvm.views.onTryAgain
 import com.example.simplemvvm.views.renderSimpleResult
 

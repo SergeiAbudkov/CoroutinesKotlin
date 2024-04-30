@@ -1,25 +1,18 @@
 package com.example.simplemvvm.views.currentcolor
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
-import com.example.foundation.model.ErrorResult
 import com.example.foundation.model.PendingResult
 import com.example.foundation.model.SuccessResult
 import com.example.foundation.model.takeSuccess
-import com.example.simplemvvm.R
-import com.example.simplemvvm.model.colors.ColorListener
-import com.example.simplemvvm.model.colors.ColorsRepository
-import com.example.simplemvvm.model.colors.NamedColor
 import com.example.foundation.navigator.Navigator
 import com.example.foundation.uiactions.UiActions
 import com.example.foundation.views.BaseViewModel
 import com.example.foundation.views.LiveResult
 import com.example.foundation.views.MutableLiveResult
-
+import com.example.simplemvvm.R
+import com.example.simplemvvm.model.colors.ColorListener
+import com.example.simplemvvm.model.colors.ColorsRepository
+import com.example.simplemvvm.model.colors.NamedColor
 import com.example.simplemvvm.views.changecolor.ChangeColorFragment
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class CurrentColorViewModel(
     private val navigator: Navigator,
@@ -28,7 +21,7 @@ class CurrentColorViewModel(
 ) : BaseViewModel() {
 
 
-    private val _currentColor = MutableLiveResult<NamedColor>(PendingResult())
+    private val _currentColor = MutableLiveResult<NamedColor>()
     val currentColor: LiveResult<NamedColor> = _currentColor
 
 
@@ -36,13 +29,12 @@ class CurrentColorViewModel(
         _currentColor.postValue(SuccessResult(it))
     }
 
+
     // example of listening results view model layer
 
     init {
-        viewModelScope.launch {
-            delay(2000)
-            colorsRepository.addListener(colorListener)
-        }
+        colorsRepository.addListener(colorListener)
+        load()
     }
 
     override fun onCleared() {
@@ -69,11 +61,12 @@ class CurrentColorViewModel(
     }
 
     fun onTryAgain() {
-        viewModelScope.launch {
-            _currentColor.postValue(PendingResult())
-            delay(2000)
-            colorsRepository.addListener(colorListener)
-        }
+        load()
+
+    }
+
+    private fun load() {
+        colorsRepository.getCurrentColor().into(_currentColor)
     }
 
 }
