@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.simplemvvm.databinding.ItemColorBinding
+import com.example.simplemvvmsideeffects.databinding.ItemColorBinding
 import com.example.simplemvvmsideeffects.model.colors.NamedColor
 
 /**

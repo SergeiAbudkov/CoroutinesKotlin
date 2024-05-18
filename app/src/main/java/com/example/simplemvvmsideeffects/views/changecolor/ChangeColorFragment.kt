@@ -10,8 +10,8 @@ import com.example.foundation.views.BaseFragment
 import com.example.foundation.views.BaseScreen
 import com.example.foundation.views.HasScreenTitle
 import com.example.foundation.views.screenViewModel
-import com.example.simplemvvm.R
-import com.example.simplemvvm.databinding.FragmentChangeColorBinding
+import com.example.simplemvvmsideeffects.R
+import com.example.simplemvvmsideeffects.databinding.FragmentChangeColorBinding
 import com.example.simplemvvmsideeffects.views.onTryAgain
 import com.example.simplemvvmsideeffects.views.renderSimpleResult
 

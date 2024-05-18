@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import com.example.foundation.views.BaseFragment
 import com.example.foundation.views.BaseScreen
 import com.example.foundation.views.screenViewModel
-import com.example.simplemvvm.databinding.FragmentCurrentColorBinding
+import com.example.simplemvvmsideeffects.databinding.FragmentCurrentColorBinding
 import com.example.simplemvvmsideeffects.views.onTryAgain
 import com.example.simplemvvmsideeffects.views.renderSimpleResult
 

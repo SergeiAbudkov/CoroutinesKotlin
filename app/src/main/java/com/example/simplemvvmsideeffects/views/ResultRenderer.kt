@@ -6,8 +6,8 @@ import android.widget.Button
 import androidx.core.view.children
 import com.example.foundation.model.Result
 import com.example.foundation.views.BaseFragment
-import com.example.simplemvvm.R
-import com.example.simplemvvm.databinding.PartResultBinding
+import com.example.simplemvvmsideeffects.R
+import com.example.simplemvvmsideeffects.databinding.PartResultBinding
 
 
 fun <T> BaseFragment.renderSimpleResult(

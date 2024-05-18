@@ -8,8 +8,7 @@ import com.example.foundation.navigator.StackFragmentNavigator
 import com.example.foundation.uiactions.AndroidUiActions
 import com.example.foundation.utils.viewModelCreator
 import com.example.foundation.views.FragmentsHolder
-import com.example.simplemvvm.R
-import com.example.simplemvvm.databinding.ActivityMainBinding
+import com.example.simplemvvmsideeffects.databinding.ActivityMainBinding
 import com.example.simplemvvmsideeffects.views.currentcolor.CurrentColorFragment
 
 /**

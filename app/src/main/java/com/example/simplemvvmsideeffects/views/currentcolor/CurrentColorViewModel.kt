@@ -8,7 +8,7 @@ import com.example.foundation.uiactions.UiActions
 import com.example.foundation.views.BaseViewModel
 import com.example.foundation.views.LiveResult
 import com.example.foundation.views.MutableLiveResult
-import com.example.simplemvvm.R
+import com.example.simplemvvmsideeffects.R
 import com.example.simplemvvmsideeffects.model.colors.ColorListener
 import com.example.simplemvvmsideeffects.model.colors.ColorsRepository
 import com.example.simplemvvmsideeffects.model.colors.NamedColor

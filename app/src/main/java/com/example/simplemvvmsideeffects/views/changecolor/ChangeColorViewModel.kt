@@ -19,7 +19,7 @@ import com.example.foundation.views.BaseViewModel
 import com.example.foundation.views.LiveResult
 import com.example.foundation.views.MediatorLiveResult
 import com.example.foundation.views.MutableLiveResult
-import com.example.simplemvvm.R
+import com.example.simplemvvmsideeffects.R
 import com.example.simplemvvmsideeffects.views.changecolor.ChangeColorFragment.Screen
 import java.lang.IllegalStateException
 
