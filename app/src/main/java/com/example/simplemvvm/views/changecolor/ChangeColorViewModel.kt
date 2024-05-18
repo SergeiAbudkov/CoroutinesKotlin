@@ -9,7 +9,8 @@ import com.example.foundation.model.FinalResult
 import com.example.foundation.model.PendingResult
 import com.example.foundation.model.SuccessResult
 import com.example.foundation.model.takeSuccess
-import com.example.foundation.model.tasks.TasksFactory
+import com.example.foundation.model.tasks.factories.TasksFactory
+import com.example.foundation.model.tasks.dispatchers.Dispatcher
 import com.example.simplemvvm.R
 import com.example.simplemvvm.model.colors.ColorsRepository
 import com.example.simplemvvm.model.colors.NamedColor
@@ -28,8 +29,9 @@ class ChangeColorViewModel(
     private val uiActions: UiActions,
     private val colorsRepository: ColorsRepository,
     private val tasksFactory: TasksFactory,
-    savedStateHandle: SavedStateHandle
-) : BaseViewModel(), ColorsAdapter.Listener {
+    savedStateHandle: SavedStateHandle,
+    dispatcher: Dispatcher
+) : BaseViewModel(dispatcher), ColorsAdapter.Listener {
 
 
     //input sources

@@ -8,6 +8,7 @@ import com.example.foundation.model.PendingResult
 import com.example.foundation.model.Result
 import com.example.foundation.model.tasks.Task
 import com.example.foundation.model.tasks.TaskListener
+import com.example.foundation.model.tasks.dispatchers.Dispatcher
 import com.example.foundation.utils.Event
 
 typealias LiveEvent<T> = LiveData<Event<T>>
@@ -20,7 +21,9 @@ typealias MediatorLiveResult<T> = MediatorLiveData<Result<T>>
 /**
  * Base class for all view-models.
  */
-open class BaseViewModel : ViewModel() {
+open class BaseViewModel(
+    private val dispatcher: Dispatcher
+) : ViewModel() {
 
     private val tasks = mutableListOf<Task<*>>()
 
@@ -32,17 +35,20 @@ open class BaseViewModel : ViewModel() {
 
     }
 
+    fun onBackPressed() {
+        clearTasks()
+    }
+
     override fun onCleared() {
         super.onCleared()
-        tasks.forEach { it.cancel() }
-        tasks.clear()
+        clearTasks()
     }
 
     fun <T> Task<T>.saveEnqueue(listener: TaskListener<T>? = null) {
         tasks.add(this)
-        this.enqueue {
+        this.enqueue(dispatcher) {
             tasks.remove(this)
-                  listener?.invoke(it)
+            listener?.invoke(it)
         }
     }
 
@@ -51,5 +57,10 @@ open class BaseViewModel : ViewModel() {
         this.saveEnqueue {
             liveResult.value = it
         }
+    }
+
+    private fun clearTasks() {
+        tasks.forEach { it.cancel() }
+        tasks.clear()
     }
 }

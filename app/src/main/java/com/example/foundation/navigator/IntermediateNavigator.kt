@@ -1,6 +1,5 @@
 package com.example.foundation.navigator
 
-import com.example.foundation.utils.Event
 import com.example.foundation.utils.ResourceActions
 import com.example.foundation.views.BaseScreen
 
