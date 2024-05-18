@@ -2,11 +2,14 @@ package com.example.foundation.model.tasks.factories
 
 import com.example.foundation.model.tasks.SynchronizedTask
 import com.example.foundation.model.tasks.Task
-import com.example.foundation.model.tasks.TaskBody
 import com.example.foundation.model.tasks.TaskListener
-import com.example.foundation.model.tasks.dispatchers.AbstractTask
+import com.example.foundation.model.tasks.AbstractTask
 
 
+/**
+ * Factory that creates tasks which are launched in a separate thread:
+ * one thread per each task. Threads are created by using [Thread] class.
+ */
 class ThreadTasksFactory : TasksFactory {
 
     override fun <T> async(body: TaskBody<T>): Task<T> {
@@ -14,7 +17,7 @@ class ThreadTasksFactory : TasksFactory {
     }
 
     private class ThreadTask<T>(
-        val body: TaskBody<T>
+        private val body: TaskBody<T>
     ) : AbstractTask<T>() {
 
         private var thread: Thread? = null
@@ -30,6 +33,6 @@ class ThreadTasksFactory : TasksFactory {
             thread?.interrupt()
         }
 
-
     }
+
 }

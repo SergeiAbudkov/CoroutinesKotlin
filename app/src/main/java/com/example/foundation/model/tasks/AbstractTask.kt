@@ -1,19 +1,17 @@
-package com.example.foundation.model.tasks.dispatchers
+package com.example.foundation.model.tasks
 
 import com.example.foundation.model.ErrorResult
-import com.example.foundation.model.tasks.Task
 import com.example.foundation.model.FinalResult
 import com.example.foundation.model.SuccessResult
-import com.example.foundation.model.tasks.CancelledException
-import com.example.foundation.model.tasks.TaskBody
-import com.example.foundation.model.tasks.TaskListener
+import com.example.foundation.model.tasks.dispatchers.Dispatcher
+import com.example.foundation.model.tasks.factories.TaskBody
 import com.example.foundation.utils.delegates.Await
 
 
 /**
-Base class for easier creation of new tasks.
-Provides 2 methods which should be implemented: [doEnqueue] and [doCancel]*/
-
+ * Base class for easier creation of new tasks.
+ * Provides 2 methods which should be implemented: [doEnqueue] and [doCancel]
+ */
 abstract class AbstractTask<T> : Task<T> {
 
     private var finalResult by Await<FinalResult<T>>()
@@ -23,7 +21,6 @@ abstract class AbstractTask<T> : Task<T> {
             finalResult = it
         }
         doEnqueue(wrapperListener)
-
         try {
             when (val result = finalResult) {
                 is ErrorResult -> throw result.exception
@@ -63,11 +60,15 @@ abstract class AbstractTask<T> : Task<T> {
         }
     }
 
-    //Запускаем задачу
+    /**
+     * Launch the task asynchronously. Listener should be called when task is finished.
+     * You may also use [executeBody] if your task executes [TaskBody] in some way.
+     */
     abstract fun doEnqueue(listener: TaskListener<T>)
 
     /**
      * Cancel the task.
      */
     abstract fun doCancel()
+
 }
