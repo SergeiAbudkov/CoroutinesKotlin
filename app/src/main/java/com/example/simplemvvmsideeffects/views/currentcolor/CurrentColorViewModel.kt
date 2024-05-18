@@ -1,4 +1,4 @@
-package com.example.simplemvvm.views.currentcolor
+package com.example.simplemvvmsideeffects.views.currentcolor
 
 import com.example.foundation.model.SuccessResult
 import com.example.foundation.model.takeSuccess
@@ -9,10 +9,10 @@ import com.example.foundation.views.BaseViewModel
 import com.example.foundation.views.LiveResult
 import com.example.foundation.views.MutableLiveResult
 import com.example.simplemvvm.R
-import com.example.simplemvvm.model.colors.ColorListener
-import com.example.simplemvvm.model.colors.ColorsRepository
-import com.example.simplemvvm.model.colors.NamedColor
-import com.example.simplemvvm.views.changecolor.ChangeColorFragment
+import com.example.simplemvvmsideeffects.model.colors.ColorListener
+import com.example.simplemvvmsideeffects.model.colors.ColorsRepository
+import com.example.simplemvvmsideeffects.model.colors.NamedColor
+import com.example.simplemvvmsideeffects.views.changecolor.ChangeColorFragment
 
 class CurrentColorViewModel(
     private val navigator: Navigator,

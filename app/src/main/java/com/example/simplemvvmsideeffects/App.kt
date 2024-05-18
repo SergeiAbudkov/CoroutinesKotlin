@@ -1,4 +1,4 @@
-package com.example.simplemvvm
+package com.example.simplemvvmsideeffects
 
 import android.app.Application
 import com.example.foundation.BaseApplication
@@ -6,7 +6,7 @@ import com.example.foundation.model.tasks.ThreadUtils.Default
 import com.example.foundation.model.tasks.dispatchers.MainThreadDispatcher
 import com.example.foundation.model.tasks.factories.ExecutorServiceTasksFactory
 import com.example.foundation.model.tasks.factories.HandlerThreadTasksFactory
-import com.example.simplemvvm.model.colors.InMemoryColorsRepository
+import com.example.simplemvvmsideeffects.model.colors.InMemoryColorsRepository
 import java.util.concurrent.Executors
 
 /**

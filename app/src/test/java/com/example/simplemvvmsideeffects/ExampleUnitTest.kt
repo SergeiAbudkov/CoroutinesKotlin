@@ -1,4 +1,4 @@
-package com.example.simplemvvm
+package com.example.simplemvvmsideeffects
 
 import org.junit.Test
 

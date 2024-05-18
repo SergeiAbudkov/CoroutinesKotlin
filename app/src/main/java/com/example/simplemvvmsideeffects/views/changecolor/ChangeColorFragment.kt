@@ -1,4 +1,4 @@
-package com.example.simplemvvm.views.changecolor
+package com.example.simplemvvmsideeffects.views.changecolor
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,14 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.simplemvvm.R
-import com.example.simplemvvm.databinding.FragmentChangeColorBinding
-import com.example.foundation.views.HasScreenTitle
 import com.example.foundation.views.BaseFragment
 import com.example.foundation.views.BaseScreen
+import com.example.foundation.views.HasScreenTitle
 import com.example.foundation.views.screenViewModel
-import com.example.simplemvvm.views.onTryAgain
-import com.example.simplemvvm.views.renderSimpleResult
+import com.example.simplemvvm.R
+import com.example.simplemvvm.databinding.FragmentChangeColorBinding
+import com.example.simplemvvmsideeffects.views.onTryAgain
+import com.example.simplemvvmsideeffects.views.renderSimpleResult
 
 
 /**

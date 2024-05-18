@@ -1,11 +1,11 @@
-package com.example.simplemvvm.views.changecolor
+package com.example.simplemvvmsideeffects.views.changecolor
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simplemvvm.databinding.ItemColorBinding
-import com.example.simplemvvm.model.colors.NamedColor
+import com.example.simplemvvmsideeffects.model.colors.NamedColor
 
 /**
  * Adapter for displaying the list of available colors

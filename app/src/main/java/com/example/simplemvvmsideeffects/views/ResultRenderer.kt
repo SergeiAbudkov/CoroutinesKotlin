@@ -1,11 +1,11 @@
-package com.example.simplemvvm.views
+package com.example.simplemvvmsideeffects.views
 
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.core.view.children
-import com.example.foundation.views.BaseFragment
 import com.example.foundation.model.Result
+import com.example.foundation.views.BaseFragment
 import com.example.simplemvvm.R
 import com.example.simplemvvm.databinding.PartResultBinding
 

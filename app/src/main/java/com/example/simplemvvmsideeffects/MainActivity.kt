@@ -1,7 +1,6 @@
-package com.example.simplemvvm
+package com.example.simplemvvmsideeffects
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.foundation.ActivityScopeViewModel
 import com.example.foundation.navigator.IntermediateNavigator
@@ -9,14 +8,16 @@ import com.example.foundation.navigator.StackFragmentNavigator
 import com.example.foundation.uiactions.AndroidUiActions
 import com.example.foundation.utils.viewModelCreator
 import com.example.foundation.views.FragmentsHolder
+import com.example.simplemvvm.R
 import com.example.simplemvvm.databinding.ActivityMainBinding
-import com.example.simplemvvm.views.currentcolor.CurrentColorFragment
+import com.example.simplemvvmsideeffects.views.currentcolor.CurrentColorFragment
 
 /**
 This application is a single-activity app. MainActivity is a container
  */
 class MainActivity : AppCompatActivity(), FragmentsHolder {
 
+    //awdddddddddddddddddddddddddd
     private lateinit var navigator: StackFragmentNavigator
     private val activityViewModel by viewModelCreator<ActivityScopeViewModel> {
         ActivityScopeViewModel(

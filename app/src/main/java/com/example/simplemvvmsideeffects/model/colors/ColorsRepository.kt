@@ -1,4 +1,4 @@
-package com.example.simplemvvm.model.colors
+package com.example.simplemvvmsideeffects.model.colors
 
 import com.example.foundation.model.Repository
 import com.example.foundation.model.tasks.Task

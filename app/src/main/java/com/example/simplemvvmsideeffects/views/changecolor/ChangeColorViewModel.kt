@@ -1,4 +1,4 @@
-package com.example.simplemvvm.views.changecolor
+package com.example.simplemvvmsideeffects.views.changecolor
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
@@ -11,16 +11,16 @@ import com.example.foundation.model.SuccessResult
 import com.example.foundation.model.takeSuccess
 import com.example.foundation.model.tasks.factories.TasksFactory
 import com.example.foundation.model.tasks.dispatchers.Dispatcher
-import com.example.simplemvvm.R
-import com.example.simplemvvm.model.colors.ColorsRepository
-import com.example.simplemvvm.model.colors.NamedColor
+import com.example.simplemvvmsideeffects.model.colors.ColorsRepository
+import com.example.simplemvvmsideeffects.model.colors.NamedColor
 import com.example.foundation.navigator.Navigator
 import com.example.foundation.uiactions.UiActions
 import com.example.foundation.views.BaseViewModel
 import com.example.foundation.views.LiveResult
 import com.example.foundation.views.MediatorLiveResult
 import com.example.foundation.views.MutableLiveResult
-import com.example.simplemvvm.views.changecolor.ChangeColorFragment.Screen
+import com.example.simplemvvm.R
+import com.example.simplemvvmsideeffects.views.changecolor.ChangeColorFragment.Screen
 import java.lang.IllegalStateException
 
 class ChangeColorViewModel(
