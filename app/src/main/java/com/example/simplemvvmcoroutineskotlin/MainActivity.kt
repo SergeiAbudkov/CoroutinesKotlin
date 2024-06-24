@@ -1,4 +1,4 @@
-package com.example.simplemvvmsideeffects
+package com.example.simplemvvmcoroutineskotlin
 
 import android.os.Bundle
 import com.example.foundation.sideeffects.SideEffectPluginsManager
@@ -10,7 +10,7 @@ import com.example.foundation.sideeffects.permissions.plugin.PermissionsPlugin
 import com.example.foundation.sideeffects.resources.plugin.ResourcesPlugin
 import com.example.foundation.sideeffects.toasts.plugin.ToastsPlugin
 import com.example.foundation.views.activity.BaseActivity
-import com.example.simplemvvmsideeffects.views.currentcolor.CurrentColorFragment
+import com.example.simplemvvmcoroutineskotlin.views.currentcolor.CurrentColorFragment
 
 /**
  * This application is a single-activity app. MainActivity is a container

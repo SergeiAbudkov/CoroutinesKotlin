@@ -1,4 +1,4 @@
-package com.example.simplemvvmsideeffects
+package com.example.simplemvvmcoroutineskotlin
 
 import org.junit.Test
 

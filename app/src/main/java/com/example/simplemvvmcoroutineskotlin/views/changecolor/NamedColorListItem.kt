@@ -1,6 +1,6 @@
-package com.example.simplemvvmsideeffects.views.changecolor
+package com.example.simplemvvmcoroutineskotlin.views.changecolor
 
-import com.example.simplemvvmsideeffects.model.colors.NamedColor
+import com.example.simplemvvmcoroutineskotlin.model.colors.NamedColor
 
 /**
  * Represents list item for the color; it may be selected or not

@@ -1,4 +1,4 @@
-package com.example.simplemvvmsideeffects.views.changecolor
+package com.example.simplemvvmcoroutineskotlin.views.changecolor
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,10 +11,10 @@ import com.example.foundation.views.BaseFragment
 import com.example.foundation.views.BaseScreen
 import com.example.foundation.views.HasScreenTitle
 import com.example.foundation.views.screenViewModel
-import com.example.simplemvvmsideeffects.R
-import com.example.simplemvvmsideeffects.databinding.FragmentChangeColorBinding
-import com.example.simplemvvmsideeffects.views.onTryAgain
-import com.example.simplemvvmsideeffects.views.renderSimpleResult
+import com.example.simplemvvmcoroutineskotlin.R
+import com.example.simplemvvmcoroutineskotlin.databinding.FragmentChangeColorBinding
+import com.example.simplemvvmcoroutineskotlin.views.onTryAgain
+import com.example.simplemvvmcoroutineskotlin.views.renderSimpleResult
 
 
 /**

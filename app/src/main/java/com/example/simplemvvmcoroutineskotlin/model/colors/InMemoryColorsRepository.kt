@@ -1,4 +1,4 @@
-package com.example.simplemvvmsideeffects.model.colors
+package com.example.simplemvvmcoroutineskotlin.model.colors
 
 import android.graphics.Color
 import com.example.foundation.model.tasks.Task

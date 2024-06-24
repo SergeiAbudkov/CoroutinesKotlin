@@ -1,4 +1,4 @@
-package com.example.simplemvvmsideeffects.model.colors
+package com.example.simplemvvmcoroutineskotlin.model.colors
 
 /**
  * Represents color data

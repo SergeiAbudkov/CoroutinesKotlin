@@ -1,4 +1,4 @@
-package com.example.simplemvvmsideeffects.views.currentcolor
+package com.example.simplemvvmcoroutineskotlin.views.currentcolor
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import com.example.foundation.views.BaseFragment
 import com.example.foundation.views.BaseScreen
 import com.example.foundation.views.screenViewModel
-import com.example.simplemvvmsideeffects.databinding.FragmentCurrentColorBinding
-import com.example.simplemvvmsideeffects.views.onTryAgain
-import com.example.simplemvvmsideeffects.views.renderSimpleResult
+import com.example.simplemvvmcoroutineskotlin.databinding.FragmentCurrentColorBinding
+import com.example.simplemvvmcoroutineskotlin.views.onTryAgain
+import com.example.simplemvvmcoroutineskotlin.views.renderSimpleResult
 
 class CurrentColorFragment : BaseFragment() {
     private lateinit var binding: FragmentCurrentColorBinding

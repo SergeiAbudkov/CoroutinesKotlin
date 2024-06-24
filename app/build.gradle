@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.simplemvvmsideeffects'
+    namespace 'com.example.simplemvvmcoroutineskotlin'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.simplemvvmsideeffects"
+        applicationId "com.example.simplemvvmcoroutineskotlin"
         minSdk 24
         targetSdk 34
         versionCode 1

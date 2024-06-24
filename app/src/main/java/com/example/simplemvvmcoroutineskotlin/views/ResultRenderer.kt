@@ -1,4 +1,4 @@
-package com.example.simplemvvmsideeffects.views
+package com.example.simplemvvmcoroutineskotlin.views
 
 import android.view.View
 import android.view.ViewGroup
@@ -6,8 +6,8 @@ import android.widget.Button
 import androidx.core.view.children
 import com.example.foundation.model.Result
 import com.example.foundation.views.BaseFragment
-import com.example.simplemvvmsideeffects.R
-import com.example.simplemvvmsideeffects.databinding.PartResultBinding
+import com.example.simplemvvmcoroutineskotlin.R
+import com.example.simplemvvmcoroutineskotlin.databinding.PartResultBinding
 
 
 /**

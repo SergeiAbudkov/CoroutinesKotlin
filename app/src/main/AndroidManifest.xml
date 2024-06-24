@@ -6,7 +6,7 @@
 
 
     <application
-        android:name="com.example.simplemvvmsideeffects.App"
+        android:name="com.example.simplemvvmcoroutineskotlin.App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -17,7 +17,7 @@
         android:theme="@style/Theme.SpaceXHistory"
         tools:targetApi="31">
         <activity
-            android:name="com.example.simplemvvmsideeffects.MainActivity"
+            android:name="com.example.simplemvvmcoroutineskotlin.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

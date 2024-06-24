@@ -1,4 +1,4 @@
-package com.example.simplemvvmsideeffects
+package com.example.simplemvvmcoroutineskotlin
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
