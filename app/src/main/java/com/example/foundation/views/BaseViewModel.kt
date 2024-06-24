@@ -1,15 +1,16 @@
 package com.example.foundation.views
 
 import androidx.lifecycle.LiveData
+import com.example.foundation.model.Result
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.foundation.model.PendingResult
-import com.example.foundation.model.Result
 import com.example.foundation.model.tasks.Task
 import com.example.foundation.model.tasks.TaskListener
 import com.example.foundation.model.tasks.dispatchers.Dispatcher
 import com.example.foundation.utils.Event
+
 
 typealias LiveEvent<T> = LiveData<Event<T>>
 typealias MutableLiveEvent<T> = MutableLiveData<Event<T>>
@@ -25,7 +26,12 @@ open class BaseViewModel(
     private val dispatcher: Dispatcher
 ) : ViewModel() {
 
-    private val tasks = mutableListOf<Task<*>>()
+    private val tasks = mutableSetOf<Task<*>>()
+
+    override fun onCleared() {
+        super.onCleared()
+        clearTasks()
+    }
 
     /**
      * Override this method in child classes if you want to listen for results
@@ -35,16 +41,20 @@ open class BaseViewModel(
 
     }
 
-    fun onBackPressed() {
+    /**
+     * Override this method in child classes if you want to control go-back behaviour.
+     * Return `true` if you want to abort closing this screen
+     */
+    open fun onBackPressed(): Boolean {
         clearTasks()
+        return false
     }
 
-    override fun onCleared() {
-        super.onCleared()
-        clearTasks()
-    }
-
-    fun <T> Task<T>.saveEnqueue(listener: TaskListener<T>? = null) {
+    /**
+     * Launch task asynchronously, listen for its result and
+     * automatically unsubscribe the listener in case of view-model destroying.
+     */
+    fun <T> Task<T>.safeEnqueue(listener: TaskListener<T>? = null) {
         tasks.add(this)
         this.enqueue(dispatcher) {
             tasks.remove(this)
@@ -52,9 +62,14 @@ open class BaseViewModel(
         }
     }
 
+    /**
+     * Launch task asynchronously and map its result to the specified
+     * [liveResult].
+     * Task is cancelled automatically if view-model is going to be destroyed.
+     */
     fun <T> Task<T>.into(liveResult: MutableLiveResult<T>) {
         liveResult.value = PendingResult()
-        this.saveEnqueue {
+        this.safeEnqueue {
             liveResult.value = it
         }
     }
@@ -63,4 +78,5 @@ open class BaseViewModel(
         tasks.forEach { it.cancel() }
         tasks.clear()
     }
+
 }

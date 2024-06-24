@@ -2,7 +2,6 @@ package com.example.foundation.model.tasks.factories
 
 import com.example.foundation.model.tasks.SynchronizedTask
 import com.example.foundation.model.tasks.Task
-import com.example.foundation.model.tasks.TaskBody
 import com.example.foundation.model.tasks.TaskListener
 import com.example.foundation.model.tasks.AbstractTask
 import java.util.concurrent.ExecutorService

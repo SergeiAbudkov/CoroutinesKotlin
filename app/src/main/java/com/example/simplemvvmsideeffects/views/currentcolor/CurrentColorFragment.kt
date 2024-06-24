@@ -37,9 +37,12 @@ class CurrentColorFragment : BaseFragment() {
         binding.changeColorButton.setOnClickListener {
             viewModel.changeColor()
         }
+        binding.askPermissionsButton.setOnClickListener {
+            viewModel.requestPermission()
+        }
 
         onTryAgain(binding.root) {
-            viewModel.onTryAgain()
+            viewModel.tryAgain()
         }
 
         return binding.root

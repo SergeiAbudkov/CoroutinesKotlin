@@ -13,8 +13,9 @@ import com.example.foundation.model.tasks.factories.TasksFactory
 import com.example.foundation.model.tasks.dispatchers.Dispatcher
 import com.example.simplemvvmsideeffects.model.colors.ColorsRepository
 import com.example.simplemvvmsideeffects.model.colors.NamedColor
-import com.example.foundation.navigator.Navigator
-import com.example.foundation.uiactions.UiActions
+import com.example.foundation.sideeffects.navigator.Navigator
+import com.example.foundation.sideeffects.resources.Resources
+import com.example.foundation.sideeffects.toasts.Toasts
 import com.example.foundation.views.BaseViewModel
 import com.example.foundation.views.LiveResult
 import com.example.foundation.views.MediatorLiveResult
@@ -26,7 +27,8 @@ import java.lang.IllegalStateException
 class ChangeColorViewModel(
     screen: Screen,
     private val navigator: Navigator,
-    private val uiActions: UiActions,
+    private val toasts: Toasts,
+    private val resources: Resources,
     private val colorsRepository: ColorsRepository,
     private val tasksFactory: TasksFactory,
     savedStateHandle: SavedStateHandle,
@@ -65,12 +67,12 @@ class ChangeColorViewModel(
     private fun onSaved(result: FinalResult<NamedColor>) {
         _saveInProgress.value = false
         when (result) {
-            is ErrorResult -> uiActions.toast(uiActions.getString(R.string.error_happened))
+            is ErrorResult -> toasts.toast(resources.getString(R.string.error_happened))
             is SuccessResult -> navigator.goBack(result = result.data)
         }
     }
 
-    fun onSavedPressed() {
+    fun onSavePressed() {
         _saveInProgress.postValue(true)
 
         tasksFactory.async {
@@ -79,7 +81,7 @@ class ChangeColorViewModel(
             val currentColor = colorsRepository.getById(currentColorId).await()
             colorsRepository.setCurrentColor(currentColor).await()
             return@async currentColor
-        }.saveEnqueue { onSaved(it) }
+        }.safeEnqueue { onSaved(it) }
     }
 
     fun onCancelPressed() {
@@ -103,12 +105,12 @@ class ChangeColorViewModel(
         val nameCurrentColor: String? = currentColor.takeSuccess()?.name
         _screenTitle.value =
             if (nameCurrentColor != null) {
-                uiActions.getString(
+                resources.getString(
                     R.string.change_color_screen_title,
                     nameCurrentColor
                 )
             } else {
-                uiActions.getString(R.string.change_color_screen)
+                resources.getString(R.string.change_color_screen_title_simple)
             }
     }
 
@@ -135,7 +137,7 @@ class ChangeColorViewModel(
         val showSaveProgressBar: Boolean,
     )
 
-    fun onTryAgain() {
+    fun tryAgain() {
         load()
     }
 

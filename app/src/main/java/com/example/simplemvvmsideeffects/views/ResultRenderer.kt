@@ -10,30 +10,36 @@ import com.example.simplemvvmsideeffects.R
 import com.example.simplemvvmsideeffects.databinding.PartResultBinding
 
 
-fun <T> BaseFragment.renderSimpleResult(
-    root: ViewGroup,
-    result: Result<T>,
-    onSuccess: (T) -> Unit
-) {
+/**
+ * Default [Result] rendering.
+ * - if [result] is [PendingResult] -> only progress-bar is displayed
+ * - if [result] is [ErrorResult] -> only error container is displayed
+ * - if [result] is [SuccessResult] -> error container & progress-bar is hidden, all other views are visible
+ */
+fun <T> BaseFragment.renderSimpleResult(root: ViewGroup, result: Result<T>, onSuccess: (T) -> Unit) {
     val binding = PartResultBinding.bind(root)
+
     renderResult(
         root = root,
         result = result,
-        onError = {
-            binding.errorContainer.visibility = View.VISIBLE
-        },
         onPending = {
             binding.progressBar.visibility = View.VISIBLE
         },
-        {successData ->
+        onError = {
+            binding.errorContainer.visibility = View.VISIBLE
+        },
+        onSuccess = { successData ->
             root.children
-                .filter { it.id != R.id.errorContainer && it.id != R.id.progressBar }
+                .filter { it.id != R.id.progressBar && it.id != R.id.errorContainer }
                 .forEach { it.visibility = View.VISIBLE }
             onSuccess(successData)
         }
     )
 }
 
+/**
+ * Assign onClick listener for default try-again button.
+ */
 fun BaseFragment.onTryAgain(root: View, onTryAgainPressed: () -> Unit) {
     root.findViewById<Button>(R.id.tryAgainButton).setOnClickListener { onTryAgainPressed() }
 }

@@ -4,7 +4,6 @@ import android.os.Handler
 import android.os.HandlerThread
 import com.example.foundation.model.tasks.SynchronizedTask
 import com.example.foundation.model.tasks.Task
-import com.example.foundation.model.tasks.TaskBody
 import com.example.foundation.model.tasks.TaskListener
 import com.example.foundation.model.tasks.AbstractTask
 
