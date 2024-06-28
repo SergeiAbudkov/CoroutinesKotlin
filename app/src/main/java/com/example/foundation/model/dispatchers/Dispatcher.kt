@@ -1,4 +1,4 @@
-package com.example.foundation.model.tasks.dispatchers
+package com.example.foundation.model.dispatchers
 
 /**
  * Dispatchers run the specified block of code in some way.

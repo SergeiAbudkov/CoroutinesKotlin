@@ -11,7 +11,7 @@ import com.example.foundation.model.PendingResult
 import com.example.foundation.model.SuccessResult
 import com.example.foundation.model.tasks.Task
 import com.example.foundation.model.tasks.TaskListener
-import com.example.foundation.model.tasks.dispatchers.Dispatcher
+import com.example.foundation.model.dispatchers.Dispatcher
 import com.example.foundation.utils.Event
 import kotlinx.coroutines.launch
 

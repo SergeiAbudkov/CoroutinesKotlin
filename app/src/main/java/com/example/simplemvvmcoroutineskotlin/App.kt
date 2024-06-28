@@ -3,7 +3,7 @@ package com.example.simplemvvmcoroutineskotlin
 import android.app.Application
 import com.example.foundation.BaseApplication
 import com.example.foundation.model.tasks.ThreadUtils
-import com.example.foundation.model.tasks.dispatchers.MainThreadDispatcher
+import com.example.foundation.model.dispatchers.MainThreadDispatcher
 import com.example.foundation.model.tasks.factories.ExecutorServiceTasksFactory
 import com.example.foundation.model.tasks.factories.HandlerThreadTasksFactory
 import com.example.simplemvvmcoroutineskotlin.model.colors.InMemoryColorsRepository

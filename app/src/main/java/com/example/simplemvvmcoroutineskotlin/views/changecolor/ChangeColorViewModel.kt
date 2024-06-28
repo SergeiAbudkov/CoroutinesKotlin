@@ -11,7 +11,7 @@ import com.example.foundation.model.PendingResult
 import com.example.foundation.model.SuccessResult
 import com.example.foundation.model.takeSuccess
 import com.example.foundation.model.tasks.factories.TasksFactory
-import com.example.foundation.model.tasks.dispatchers.Dispatcher
+import com.example.foundation.model.dispatchers.Dispatcher
 import com.example.simplemvvmcoroutineskotlin.model.colors.ColorsRepository
 import com.example.simplemvvmcoroutineskotlin.model.colors.NamedColor
 import com.example.foundation.sideeffects.navigator.Navigator

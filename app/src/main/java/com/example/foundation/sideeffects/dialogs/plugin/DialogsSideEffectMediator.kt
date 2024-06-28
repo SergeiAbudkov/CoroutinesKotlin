@@ -1,9 +1,8 @@
 package com.example.foundation.sideeffects.dialogs.plugin
 
 import com.example.foundation.model.ErrorResult
-import com.example.foundation.model.tasks.Task
 import com.example.foundation.model.tasks.callback.CallbackTask
-import com.example.foundation.model.tasks.callback.Emitter
+import com.example.foundation.model.Emitter
 import com.example.foundation.sideeffects.SideEffectMediator
 import com.example.foundation.sideeffects.dialogs.Dialogs
 
