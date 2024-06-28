@@ -1,17 +1,12 @@
 package com.example.simplemvvmcoroutineskotlin.model.colors
 
 import android.graphics.Color
-import com.example.foundation.model.tasks.Task
-import com.example.foundation.model.tasks.factories.TasksFactory
-import com.example.foundation.model.tasks.ThreadUtils
+import kotlinx.coroutines.delay
 
 /**
  * Simple in-memory implementation of [ColorsRepository]
  */
-class InMemoryColorsRepository(
-    private val taskFactory: TasksFactory,
-    private val threadUtils: ThreadUtils
-) : ColorsRepository {
+class InMemoryColorsRepository : ColorsRepository {
 
     private var currentColor: NamedColor = AVAILABLE_COLORS[0]
 
@@ -26,29 +21,29 @@ class InMemoryColorsRepository(
         listeners -= listener
     }
 
-    override suspend fun getAvailableColors(): List<NamedColor> = taskFactory.async {
-        threadUtils.sleep(1000)
-        return@async AVAILABLE_COLORS
-    }.suspend()
+    override suspend fun getAvailableColors(): List<NamedColor>  {
+        delay(1000)
+        return AVAILABLE_COLORS
+    }
 
-    override suspend fun getById(id: Long): NamedColor = taskFactory.async {
-        threadUtils.sleep(1000)
-        return@async AVAILABLE_COLORS.first { it.id == id }
-    }.suspend()
+    override suspend fun getById(id: Long): NamedColor  {
+        delay(1000)
+        return AVAILABLE_COLORS.first { it.id == id }
+    }
 
 
-    override suspend fun getCurrentColor(): NamedColor = taskFactory.async {
-        threadUtils.sleep(1000)
-        return@async currentColor
-    }.suspend()
+    override suspend fun getCurrentColor(): NamedColor  {
+        delay(1000)
+        return currentColor
+    }
 
-    override suspend fun setCurrentColor(color: NamedColor): Unit = taskFactory.async {
-        threadUtils.sleep(1000)
+    override suspend fun setCurrentColor(color: NamedColor): Unit  {
+        delay(1000)
         if (currentColor != color) {
             currentColor = color
             listeners.forEach { it(color) }
         }
-    }.suspend()
+    }
 
     companion object {
         private val AVAILABLE_COLORS = listOf(
