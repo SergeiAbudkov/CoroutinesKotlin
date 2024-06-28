@@ -5,15 +5,8 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
-import com.example.foundation.model.ErrorResult
-import com.example.foundation.model.FinalResult
 import com.example.foundation.model.PendingResult
-import com.example.foundation.model.SuccessResult
 import com.example.foundation.model.takeSuccess
-import com.example.foundation.model.tasks.factories.TasksFactory
-import com.example.foundation.model.dispatchers.Dispatcher
-import com.example.simplemvvmcoroutineskotlin.model.colors.ColorsRepository
-import com.example.simplemvvmcoroutineskotlin.model.colors.NamedColor
 import com.example.foundation.sideeffects.navigator.Navigator
 import com.example.foundation.sideeffects.resources.Resources
 import com.example.foundation.sideeffects.toasts.Toasts
@@ -22,10 +15,11 @@ import com.example.foundation.views.LiveResult
 import com.example.foundation.views.MediatorLiveResult
 import com.example.foundation.views.MutableLiveResult
 import com.example.simplemvvmcoroutineskotlin.R
+import com.example.simplemvvmcoroutineskotlin.model.colors.ColorsRepository
+import com.example.simplemvvmcoroutineskotlin.model.colors.NamedColor
 import com.example.simplemvvmcoroutineskotlin.views.changecolor.ChangeColorFragment.Screen
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
-import java.lang.IllegalStateException
 
 class ChangeColorViewModel(
     screen: Screen,

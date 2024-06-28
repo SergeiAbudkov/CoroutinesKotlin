@@ -1,6 +1,7 @@
 package com.example.foundation.sideeffects.dialogs
 
 import com.example.foundation.sideeffects.dialogs.plugin.DialogConfig
+import com.example.foundation.sideeffects.dialogs.plugin.DialogsPlugin
 
 /**
  * Side-effects interface for managing dialogs from view-model.

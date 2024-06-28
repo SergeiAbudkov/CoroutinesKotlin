@@ -1,7 +1,6 @@
 package com.example.simplemvvmcoroutineskotlin.model.colors
 
 import com.example.foundation.model.Repository
-import com.example.foundation.model.tasks.Task
 
 typealias ColorListener = (NamedColor) -> Unit
 
@@ -22,14 +21,14 @@ interface ColorsRepository : Repository {
      */
     suspend fun getById(id: Long): NamedColor
 
-/**
+    /**
     Get the current selected color.
-    */
+     */
     suspend fun getCurrentColor(): NamedColor
 
-/**
+    /**
     Set the specified color as current.
-    */
+     */
     suspend fun setCurrentColor(color: NamedColor): Unit
 
     /**

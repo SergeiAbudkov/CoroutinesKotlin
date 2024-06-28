@@ -4,9 +4,8 @@ import android.Manifest
 import androidx.lifecycle.viewModelScope
 import com.example.foundation.model.PendingResult
 import com.example.foundation.model.SuccessResult
-import com.example.foundation.model.takeSuccess
 import com.example.foundation.model.dispatchers.Dispatcher
-import com.example.foundation.model.tasks.factories.TasksFactory
+import com.example.foundation.model.takeSuccess
 import com.example.foundation.sideeffects.dialogs.Dialogs
 import com.example.foundation.sideeffects.dialogs.plugin.DialogConfig
 import com.example.foundation.sideeffects.intents.Intents
@@ -34,7 +33,6 @@ class CurrentColorViewModel(
     private val intents: Intents,
     private val dialogs: Dialogs,
     private val colorsRepository: ColorsRepository,
-    dispatcher: Dispatcher
 ) : BaseViewModel() {
 
     private val _currentColor = MutableLiveResult<NamedColor>(PendingResult())
