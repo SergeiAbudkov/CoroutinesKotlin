@@ -1,19 +1,22 @@
 package com.example.foundation.sideeffects.dialogs.plugin
 
-import com.example.foundation.model.ErrorResult
 import com.example.foundation.model.Emitter
+import com.example.foundation.model.ErrorResult
+import com.example.foundation.model.toEmitter
 import com.example.foundation.sideeffects.SideEffectMediator
 import com.example.foundation.sideeffects.dialogs.Dialogs
+import kotlinx.coroutines.suspendCancellableCoroutine
 
 class DialogsSideEffectMediator : SideEffectMediator<DialogsSideEffectImpl>(), Dialogs {
 
     var retainedState = RetainedState()
 
-    override suspend fun show(dialogConfig: DialogConfig): Boolean = CallbackTask.create { emitter ->
+    override suspend fun show(dialogConfig: DialogConfig): Boolean = suspendCancellableCoroutine { continuation ->
+        val emitter = continuation.toEmitter()
         if (retainedState.record != null) {
             // for now allowing only 1 active dialog at a time
             emitter.emit(ErrorResult(IllegalStateException("Can't launch more than 1 dialog at a time")))
-            return@create
+            return@suspendCancellableCoroutine
         }
 
         val wrappedEmitter = Emitter.wrap(emitter) {
@@ -32,7 +35,7 @@ class DialogsSideEffectMediator : SideEffectMediator<DialogsSideEffectImpl>(), D
         }
 
         retainedState.record = record
-    }.suspend()
+    }
 
     class DialogRecord(
         val emitter: Emitter<Boolean>,
