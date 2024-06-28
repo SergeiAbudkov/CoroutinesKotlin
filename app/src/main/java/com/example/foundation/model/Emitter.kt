@@ -1,6 +1,10 @@
 package com.example.foundation.model
 
-import com.example.foundation.model.tasks.callback.CancelListener
+import kotlinx.coroutines.CancellableContinuation
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
+
+typealias CancelListener = () -> Unit
 
 /**
  * Emitter instance is passed to [CallbackTask.create] as an argument so you can use it
