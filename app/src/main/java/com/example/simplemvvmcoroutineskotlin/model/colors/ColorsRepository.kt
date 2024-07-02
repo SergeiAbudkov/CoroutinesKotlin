@@ -29,7 +29,7 @@ interface ColorsRepository : Repository {
     /**
     Set the specified color as current.
      */
-    suspend fun setCurrentColor(color: NamedColor): Unit
+    suspend fun setCurrentColor(color: NamedColor)
 
     /**
      * Listen for the current color changes.
